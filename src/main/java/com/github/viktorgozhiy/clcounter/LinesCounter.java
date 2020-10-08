@@ -6,12 +6,12 @@ import java.util.Scanner;
 
 public class LinesCounter {
 
-    public static int countLines(String filePath) throws FileNotFoundException {
+    public static int countLines(File file) throws FileNotFoundException {
         int lineCount = 0;
         boolean commentBegan = false;
         String line;
 
-        Scanner scanner = new Scanner(new File(filePath));
+        Scanner scanner = new Scanner(file);
         while (scanner.hasNextLine()) {
             line = scanner.nextLine().trim();
             if (line.isEmpty() || (line.startsWith("//") && !commentBegan)) continue;
